@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>UMa Tools</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+    
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel='stylesheet' href='https://raw.githubusercontent.com/daneden/animate.css/master/animate.css'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Archivo:wght@100;300;400&amp;display=swap'>
+    <link rel="stylesheet" href="{{ url_for('static',filename ='style.css') }}">
+    
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="container">
+    <div class="bg-img"></div>
+    <div class="header">
+        <div class="loading">
+            <div class="inner one"></div>
+            <div class="inner two"></div>
+            <div class="inner three"></div>
+        </div>
+        <h1 class="ani-title">UMa Tools</h1>
+    </div>
+</div>
+<h1 class="title">UMa<br>Tools</h1>
+
+<form class="calculate-box box-container" id="calcuForm" action='/' method="post">
+
+        <div class="blocks title-zone">
+            <div class="sblock blockTitle"><label class="calcTitle">實質均利試算器</label></div>
+        </div>
+        <div class="blocks type">
+            <div class="sblock catype"><label class="calcType"><input id="calculateType1" name="type" onclick="" type="radio" value="1" checked="checked" required="required" />還本型</label></div>
+            <div class="sblock catype"><label class="calcType"><input id="calculateType2" name="type" onclick="" type="radio" value="2" />循環型</label></div>
+            <div class="ps-zone"><label>*為必填欄位 </label></div>
+        </div>
+        <div class="blocks fee">
+            <div class="feeblock loadamount"><input id="loanAmount" type="number" name="PV" onfocus="this.value=''" required="required" /><label>*貸款金額</label><span>萬元</span></div>
+            <div class="feeblock loadperiod"><input id="loanPeriod" type="number" name="T" onfocus="this.value=''" required="required" /><label>*貸款期間</label><span>年</span></div>
+            <div class="feeblock loadfee"><input id="loanFee" type="number" name="fee" onfocus="this.value=''" required="required" /><label>&nbsp;貸款費用</label><span>元</span></div>
+        </div>
+        <div class="blocks type stage">
+            <div class="sblock catype stageType"><label class="calcType stageType1"><input id="stageType1" name="stage" onclick="" type="radio" value="a" required="required" />一段式</label></div>
+            <div class="sblock catype"><label class="calcType stageType2"><input id="stageType2" name="stage" onclick="" type="radio" value="b" checked="checked" />兩段式 </label></div>
+        </div>
+        <div class="blocks percent">
+            <div class="sblock percentTitle"><label>*貸款利率</label></div>
+            <div class="sblock percentInput">
+                <div class="sblock firstperiod" id="firstperiod">
+                    <div class="sblocks fpFirst"><label>第</label><input id="firstPeriodOne" type="number" value="1" /><label>月</label></div>
+                    <div class="sblocks fpSec"> <label>~第</label><input id="firstPeriodTwo" type="number" onfocus="this.value=''" /><label>月</label></div>
+                    <div class="sblocks fpThird"> <input id="firstPercent" type="number" name="r" onfocus="this.value=''" step="0.01" required="required" /><label>% </label></div>
+                </div>
+                <div class="sblock secperiod" id="secperiod">
+                    <div class="sblocks spFirst"><label>第</label><input id="secPeriodOne" type="number" name="n_gap" onfocus="this.value=''" /><label>月</label></div>
+                    <div class="sblocks spSec"> <label>~第</label><input id="secPeriodTwo" type="number" onfocus="this.value=''" required="required" /><label>月</label></div>
+                    <div class="sblocks spThird"> <input id="secPercent" type="number" name="r2" onfocus="this.value=''" step="0.01" required="required" /><label>%</label></div>
+                </div>
+            </div>
+        </div>
+        <div class="blocks btn-zone">
+            <div class="sblock clear">
+                <div id="clear"><a href=""><span></span><span></span><span></span><span></span>清除內容</a></div>
+            </div>
+            <div class="sblock submit">
+                <input id="mainSubmit" type="submit" value="Submit"/>
+                <div id="submit"><a href=""> <span></span><span></span><span></span><span></span>開始試算</a></div>
+            </div>
+        </div>
+        <div class="blocks result" id="result">
+            <div class="sblock left">
+                <div class="result-title">試算結果</div>
+                <div class="arrow">></div>
+            </div>
+            <div class="sblock right">
+                <div class="sblocks rightFirst"><label id="chooseType">還本型</label>
+                    <div class="result-secTitle">實質報酬率</div>
+                </div>
+                <div class="sblocks rightSec"> <span id="resultPercent"></span><span>%</span></div>
+                <div class="result-ps">*試算結果僅供參考，不等於實際貸款條件。</div>
+            </div>
+            <div class="sblock bottomTitle">本息攤還表</div>
+            <div class="sblock bottom" id="bottom">
+            </div>
+        </div>
+    </form>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+  <script  src="{{ url_for('static',filename ='script.js') }}"></script>
+</body>
+</html>
