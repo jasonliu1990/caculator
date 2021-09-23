@@ -1,5 +1,5 @@
 # caculator
-heroku筆記
+## heroku筆記
 使⽤heroku佈署flask app的流程
 透過heroku可以免費且快速的佈署⼩玩具上線，主要步驟簡述如下:
 PART 1 : Heroku設定
