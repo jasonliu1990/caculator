@@ -1,15 +1,15 @@
 # caculator
 ## heroku筆記
-使⽤heroku佈署flask app的流程
+### 使⽤heroku佈署flask app的流程
 透過heroku可以免費且快速的佈署⼩玩具上線，主要步驟簡述如下:
-PART 1 : Heroku設定
+#### PART 1 : Heroku設定
 1. 註冊Heroku
 2. 在本地安裝 Heroku CLI 及 GIT
-PART2 : python專案設定
+#### PART2 : python專案設定
 需要在python專案內添加幾個設定⽂件
 1. Procfile: 如何啟動app，Heroku官⽅使⽤gunicorn，記得加到requirements.txt內
-基本使⽤⽅法是
-web gunicorn <your app name>:app
+基本使⽤⽅法是<br>
+`web gunicorn <your app name>:app`
 flask 檔案⽬錄範例
 heroku筆記 2
 2. requirements.txt
