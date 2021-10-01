@@ -46,11 +46,13 @@ class SmeCalculator:
         payment_data = pd.DataFrame(payment_list, columns=['期別', '應還本金', '應付利息', '應付本息','剩餘本金'])
         for c in payment_data.columns:
             payment_data[c] = payment_data[c].apply(lambda x: int(round(x, 0)))
+            payment_data[c] = payment_data[c].apply(lambda x: format(x, ','))
         return payment_data
     
     def calcu_year_rate(self):
         payment_data = self.create_payment_df()
-        payment_ary = np.hstack((np.array(-(self.PV - self.fee)), payment_data['應付本息'].values))
+        payment_ary = payment_data['應付本息'].apply(lambda x: int(x.replace(',', ''))).values
+        payment_ary = np.hstack((np.array(-(self.PV - self.fee)), payment_ary))
         year_rate = np.irr(payment_ary) * 12
         year_rate = round(year_rate, 6)
         year_rate *= 100        
