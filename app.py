@@ -16,10 +16,13 @@ class SmeCalculator:
         self.r2 = r2
         self.meanrate_1 = self.calcu_meanrate(self.n, self.r)
         self.meanrate_2 = self.calcu_meanrate(self.n2, self.r2)
-
+        
     @staticmethod
-    def calcu_meanrate(n, r):       
-        meanrate = ((1 + r/12)**n * r/12) / ((1 + r/12)**n - 1)
+    def calcu_meanrate(n, r):
+        try:
+            meanrate = ((1 + r/12)**n * r/12) / ((1 + r/12)**n - 1)
+        except:
+            meanrate = 0
         return meanrate
     
     def calcu_payment(self):  
