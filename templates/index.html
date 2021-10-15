@@ -25,12 +25,12 @@
         <h1 class="ani-title">UMa Tools</h1>
     </div>
 </div>
-<h1 class="title">UMa<br>Tools</h1>
+<h1 class="title" id="bgTitle">UMa<br>Tools</h1>
 
 <form class="calculate-box box-container" id="calcuForm" action='/' method="post">
 
         <div class="blocks title-zone">
-            <div class="sblock blockTitle"><label class="calcTitle">實質均利試算器</label></div>
+            <div class="sblock blockTitle"><label class="calcTitle">實質均率試算器</label></div>
         </div>
         <div class="blocks type">
             <div class="sblock catype"><label class="calcType"><input id="calculateType1" name="type" onclick="" type="radio" value="1" checked="checked" required="required" />還本型</label></div>
@@ -40,7 +40,7 @@
         <div class="blocks fee">
             <div class="feeblock loadamount"><input id="loanAmount" type="number" name="PV" onfocus="this.value=''" required="required" /><label>*貸款金額</label><span>萬元</span></div>
             <div class="feeblock loadperiod"><input id="loanPeriod" type="number" name="T" onfocus="this.value=''" required="required" /><label>*貸款期間</label><span>年</span></div>
-            <div class="feeblock loadfee"><input id="loanFee" type="number" name="fee" onfocus="this.value=''" required="required" /><label>&nbsp;貸款費用</label><span>元</span></div>
+            <div class="feeblock loadfee"><input id="loanFee" type="number" name="fee" onfocus="this.value=''" required="required" /><label>&nbsp;手續費</label><span>元</span></div>
         </div>
         <div class="blocks type stage">
             <div class="sblock catype stageType"><label class="calcType stageType1"><input id="stageType1" name="stage" onclick="" type="radio" value="a" required="required" />一段式</label></div>
@@ -50,13 +50,13 @@
             <div class="sblock percentTitle"><label>*貸款利率</label></div>
             <div class="sblock percentInput">
                 <div class="sblock firstperiod" id="firstperiod">
-                    <div class="sblocks fpFirst"><label>第</label><input id="firstPeriodOne" type="number" value="1" /><label>月</label></div>
+                    <div class="sblocks fpFirst"><label>第</label><input id="firstPeriodOne" type="number" value="1" disabled="disabled"/><label>月</label></div>
                     <div class="sblocks fpSec"> <label>~第</label><input id="firstPeriodTwo" type="number" onfocus="this.value=''" /><label>月</label></div>
                     <div class="sblocks fpThird"> <input id="firstPercent" type="number" name="r" onfocus="this.value=''" step="0.01" required="required" /><label>% </label></div>
                 </div>
                 <div class="sblock secperiod" id="secperiod">
-                    <div class="sblocks spFirst"><label>第</label><input id="secPeriodOne" type="number" name="n_gap" onfocus="this.value=''" /><label>月</label></div>
-                    <div class="sblocks spSec"> <label>~第</label><input id="secPeriodTwo" type="number" onfocus="this.value=''" required="required" /><label>月</label></div>
+                    <div class="sblocks spFirst"><label>第</label><input id="secPeriodOne" type="number" name="n_gap" onfocus="this.value=''" disabled/><label>月</label></div>
+                    <div class="sblocks spSec"> <label>~第</label><input id="secPeriodTwo" type="number" onfocus="this.value=''" required="required" disabled/><label>月</label></div>
                     <div class="sblocks spThird"> <input id="secPercent" type="number" name="r2" onfocus="this.value=''" step="0.01" required="required" /><label>%</label></div>
                 </div>
             </div>
