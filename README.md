@@ -26,9 +26,14 @@ $ git commit -am "make it better"
 $ git push heroku master
 ```
 ### PART4 : 其他
-解決⼀些佈署上的⼩問題<br>
+* 取log<br>
+```power shell
+heroku logs -n 1500 | findstr POST > logs_20211015.csv
+```
+* 解決⼀些佈署上的⼩問題<br>
 1. 免費時數只有450⼩時，綁信⽤卡則可以增加到950⼩時
 2. 免費版每半⼩時會休眠，為了不影響使⽤體驗，可以透過cron-job定時呼叫
 參考:
 * https://github.com/twtrubiks/Deploying-Flask-To-Heroku
 * https://ctaohe.github.io/2019/11/06/2019-11-6_keep_heroku_alive/
+
