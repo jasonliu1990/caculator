@@ -2,7 +2,7 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
 @import url("https://fonts.googleapis.com/css2?family=Archivo:wght@300&display=swap");
 * {
-  transition: all 1s linear;
+  /* transition: all 1s linear; */
   font-family: "微軟正黑體";
   color: white;
 }
@@ -480,7 +480,9 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     overflow-y: auto;
     overflow-x: hidden;
   }
-
+  #bgTitle {
+    display: none;
+  }
   .calculate-box {
     top: 35%;
     width: 100%;
@@ -507,6 +509,9 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   .result .right .result-ps {
     font-size: 14px;
   }
+  span#resultPercent {
+    margin-left: 5px;
+  }
 }
 @media screen and (max-width: 675px) {
   body {
@@ -516,7 +521,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 
   .calculate-box {
     width: 100%;
-    top: 70%;
+    top: 60%;
   }
   .calculate-box .title-zone .blockTitle {
     width: 100%;
@@ -582,11 +587,17 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     line-height: 15px;
     font-size: 30px;
   }
+  .calculate-box .result .right .rightFirst {
+    width: 100%;
+  }
   .calculate-box .result .right .rightSec span {
     font-size: 40px;
   }
   .calculate-box .result .right .result-ps {
     margin-left: 0px;
+  }
+  .calculate-box .result .bottomTitle {
+    margin-top: 75px;
   }
   .calculate-box .result .bottom table thead tr th {
     font-size: 16px;
@@ -654,6 +665,9 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   .calculate-box .result .right .result-ps {
     margin-left: 0px;
   }
+  .calculate-box .result .bottom table {
+    font-size: 16px;
+  }
   .calculate-box .result .bottom table thead tr th {
     font-size: 14px;
   }
@@ -666,7 +680,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 
   .calculate-box {
     width: 100%;
-    top: 90%;
+    top: 75%;
   }
   .calculate-box .title-zone .blockTitle {
     width: 100%;
@@ -712,7 +726,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     padding: 5px 5px;
   }
   .calculate-box .result .right .rightSec span {
-    font-size: 20px;
+    font-size: 34px;
   }
   .calculate-box .result .right .result-ps {
     margin-left: 0px;
@@ -722,7 +736,10 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     font-size: 12px;
   }
   .calculate-box .result .bottom table tbody {
-    font-size: 16px;
+    font-size: 14px;
+  }
+  span#resultPercent {
+    margin: 12px;
   }
 }
 .loading {

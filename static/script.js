@@ -10,15 +10,22 @@ $(document).ready(function(){
     if (this.value == "1"){
       $("#chooseType").text("還本型")
       $("input[type='radio'][name='stage']")[1].checked = true;
+	    $(".stageType2").css("display", "inline-block")
+	    $(".stageType").css("width", "45%")
       $("#secperiod").css("display", "inline-block")
       $("#firstperiod").css("margin-top", "10px")
       var loanPeriod = parseInt($("#loanPeriod").val())
       secPeriodTwo.value = loanPeriod*12
       var firstInputPeriod = parseInt($("#firstPeriodTwo").val())
       secPeriodOne.value = firstInputPeriod + 1
+      document.getElementById('firstPeriodTwo').disabled=false
+      document.getElementById('secPeriodTwo').disabled=true
+      document.getElementById('secPeriodOne').disabled=true
     }else{
       $("#chooseType").text("循環型")
       $("input[type='radio'][name='stage']")[0].checked = true;
+	    $(".stageType2").css("display", "none")
+	    $(".stageType").css("width", "100%")
       $("#secperiod").css("display", "none")
       var width = $(window).width()
       if (width < 675){
@@ -28,6 +35,7 @@ $(document).ready(function(){
       }
       var loanPeriod = parseInt($("#loanPeriod").val())
       firstPeriodTwo.value = loanPeriod*12
+      document.getElementById('firstPeriodTwo').disabled=true
     }
   })
   
@@ -50,7 +58,6 @@ $(document).ready(function(){
       secPeriodTwo.value = loanPeriod*12
       var firstInputPeriod = parseInt($("#firstPeriodTwo").val())
       secPeriodOne.value = firstInputPeriod + 1
-      
     }
   })
   
@@ -58,9 +65,11 @@ $(document).ready(function(){
   $("#loanPeriod").on('input', function(){
     var stage = $("input[type='radio'][name='stage']:checked").val()
     if (stage == "b"){
+	  // 兩段式
       var loanPeriod = parseInt($("#loanPeriod").val())
       secPeriodTwo.value = loanPeriod*12
     }else{
+	  // 一段式
       var loanPeriod = parseInt($("#loanPeriod").val())
       firstPeriodTwo.value = loanPeriod*12
     }
@@ -83,12 +92,23 @@ $(document).ready(function(){
 $("#clear").click(function(){
   event.preventDefault();
   $("#calcuForm")[0].reset();
+  $('#thead tbody').empty();
+  document.getElementById('secPeriodTwo').disabled=true
+  document.getElementById('secPeriodOne').disabled=true
+  $("#resultPercent").empty();
 })
 
 // 開始試算btn
 $("#mainSubmit").click(function(e){
   e.preventDefault();
   console.log("clickSubmit")
+  // var stage = $("input[type='radio'][name='stage']:checked").val()
+  // console.log(stage)
+  // console.log(parseInt($("#loanPeriod").val()))
+  // console.log(parseInt($("#firstPeriodTwo").val()))
+  // console.log(parseInt($("#secPeriodTwo").val()))
+  document.getElementById('secPeriodTwo').disabled=false
+  document.getElementById('secPeriodOne').disabled=false
   $.ajax({
     url: '/',
     type: 'post',
@@ -116,7 +136,7 @@ $("#mainSubmit").click(function(e){
       console.log(response['ans'])
       console.log(typeof(response['ans']))
       // render利率
-      var rateAns = response['ans'].toFixed(2)
+      var rateAns = response['ans'].toFixed(4)
       $("#resultPercent").text(rateAns)
 
       // renderTable
